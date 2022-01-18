@@ -21,13 +21,18 @@ class MemoListPage extends StatefulWidget {
 }
 
 class _MemoListPageState extends State<MemoListPage> {
-  List<Memo> usermemoList = [];
+  List<Memo> usermemoList = [
+    Memo(contents: 'カレー粉'),
+    Memo(contents: 'たまねぎ'),
+    Memo(contents: 'にんじん'),
+  ];
 
   void addNewMemo(String txContents) {
     final newTx = Memo(contents: txContents);
 
     setState(() {
       usermemoList.add(newTx);
+    
     });
   }
 
@@ -48,11 +53,11 @@ class _MemoListPageState extends State<MemoListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Demo'),
+        title: const Text('Demo'),
         actions: [
           IconButton(
             onPressed: () => startAddNewMemo(context),
-            icon: Icon(Icons.add),
+            icon: const Icon(Icons.add),
           ),
         ],
       ),
